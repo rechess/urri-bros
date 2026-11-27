@@ -1,0 +1,162 @@
+/* Web de presentació d'Urri Bros: el mateix aire que el joc (blau marí, arlequinat blanc-i-blau, groc, lletra de píxels) */
+@font-face { font-family: 'Press Start 2P'; src: url('assets/PressStart2P.ttf') format('truetype'); font-display: swap; }
+:root {
+  --mari: #06123a; --fons: #05081a; --caixa: #0b1636; --blau: #2a6be0; --blau-clar: #9fd0ff;
+  --groc: #ffd24a; --blanc: #f4f7ff; --vermell: #e8344a; --blau-logo: #0a7cf0;   /* el blau de «BROS» al logotip */
+  --pixel: 'Press Start 2P', monospace;
+  --text: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--fons); color: var(--blanc); font: 17px/1.65 var(--text); }
+img, video { max-width: 100%; height: auto; display: block; }
+a { color: var(--blau-clar); text-decoration: none; }   /* els enllaços, del blau del menú i sense subratllar */
+a:hover { color: var(--groc); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--groc); outline-offset: 3px; }
+h1, h2, h3, .pixel { font-family: var(--pixel); font-weight: normal; line-height: 1.4; letter-spacing: 0.02em; }
+h2 { color: var(--groc); font-size: clamp(18px, 3.2vw, 26px); margin: 0 0 24px; text-shadow: 3px 3px 0 var(--mari); }
+h3 { font-size: 13px; color: var(--blanc); margin: 0 0 10px; }
+.contingut { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+section { padding: 72px 0; }
+section:nth-of-type(even) { background: var(--caixa); }
+.intro-seccio { max-width: 760px; margin: -8px 0 32px; color: #d8e2ff; }
+
+/* --- capçalera --- */
+.barra { position: sticky; top: 0; z-index: 10; background: rgba(5, 8, 26, 0.92); backdrop-filter: blur(6px); border-bottom: 3px solid var(--blau); }
+.barra .contingut { display: flex; align-items: center; gap: 20px; height: 64px; }
+.barra .marca { font-family: var(--pixel); font-size: 13px; color: var(--blanc); text-decoration: none; white-space: nowrap; }
+.barra .marca span, .marca-peu span { color: var(--blau-logo); }
+.barra .marca:hover { color: var(--blanc); }   /* el nom de la capçalera no canvia de color */
+.barra nav { display: flex; gap: 18px; margin-left: auto; }
+.barra nav a { font-family: var(--pixel); font-size: 10px; color: var(--blau-clar); text-decoration: none; }
+.barra nav a:hover { color: var(--groc); }
+.barra .marca + .boto { margin-left: auto; }   /* a les pàgines sense menú, el botó també va a la dreta */
+@media (max-width: 860px) { .barra nav { display: none; } .barra .boto { margin-left: auto; } }
+
+/* --- botons --- */
+.boto { display: inline-block; font-family: var(--pixel); font-size: 14px; text-decoration: none; color: var(--mari); background: var(--groc);
+  padding: 16px 22px; border: 3px solid var(--mari); box-shadow: 5px 5px 0 var(--mari); transition: transform .08s, box-shadow .08s; }
+.boto:hover { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--mari); color: var(--mari); }
+.boto:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--mari); }
+.boto.petit { font-size: 10px; padding: 10px 14px; box-shadow: 3px 3px 0 var(--mari); }
+.boto.secundari { background: var(--blanc); }
+.boto.gran { font-size: clamp(16px, 2.6vw, 22px); padding: 20px 30px; }
+
+/* --- portada --- */
+.portada { position: relative; overflow: hidden; padding: 40px 0; text-align: center; background: var(--fons);
+  /* tota l'alçada de la pantalla, menys la capçalera (67 px): «El joc» comença just a sota */
+  min-height: calc(100vh - 67px); min-height: calc(100svh - 67px); display: flex; flex-direction: column; justify-content: center; }
+.portada-fons, .intro-fons { position: absolute; inset: 0; background: url('joc/assets/promo.jpg') center 30% / cover; }
+.portada-fons { inset: -10% 0 0; will-change: transform; }   /* (més alt: el parallax el mou cap avall) */
+.portada-vel { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 8, 26, .7), rgba(5, 8, 26, .94)); }
+.portada .contingut { position: relative; }
+.portada .logo { width: clamp(220px, calc((100svh - 400px) * 1.78), min(620px, 92%));   /* el logotip s'encongeix si la pantalla és baixa */ margin: 0 auto 8px; filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .55)); animation: flota 3.2s ease-in-out infinite; }
+@keyframes flota { 50% { transform: translateY(-8px); } }
+@media (prefers-reduced-motion: reduce) { .portada .logo { animation: none; } html { scroll-behavior: auto; } }
+.portada .lema { font-family: var(--pixel); font-size: clamp(13px, 2.2vw, 18px); color: var(--groc); text-shadow: 3px 3px 0 var(--mari); margin: 0 0 14px; }
+.portada .sublema { max-width: 640px; margin: 0 auto 30px; font-size: 18px; color: #e8eeff; text-shadow: 0 2px 6px rgba(0, 0, 0, .8); }
+.portada .botons { display: flex; gap: 18px; justify-content: center; align-items: center; flex-wrap: wrap; }
+
+/* --- xifres --- */
+.xifres { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 36px; }
+.xifra { background: var(--mari); border: 3px solid var(--blau); padding: 26px 20px 22px; text-align: center; }
+.xifra b { display: block; font-family: var(--pixel); font-size: clamp(40px, 5vw, 56px); line-height: 1.2; color: var(--groc); margin-bottom: 14px; text-shadow: 4px 4px 0 var(--mari); }
+.xifra span { font-size: 15px; color: #cfdcff; }
+
+/* --- tràiler --- */
+.trailer { border: 4px solid var(--groc); box-shadow: 8px 8px 0 var(--mari); background: #000; aspect-ratio: 2 / 1; width: 100%; }
+
+/* --- galeria i nivells --- */
+.galeria { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; margin-bottom: 40px; }   /* nou captures: tres per fila a l'ordinador */
+.galeria figure { margin: 0; background: var(--mari); border: 3px solid var(--blau); }
+.galeria img { aspect-ratio: 16 / 9; object-fit: cover; width: 100%; image-rendering: pixelated; }
+.galeria figcaption { font-family: var(--pixel); font-size: 9px; padding: 10px; color: var(--blau-clar); }
+.mapa-nivells { display: grid; grid-template-columns: 1fr; gap: 28px; }
+.mapa-nivells img { border: 4px solid var(--blau); width: 100%; max-width: 900px; margin: 0 auto; }
+.llista-nivells { list-style: none; margin: 0; padding: 0; counter-reset: n; columns: 1; column-gap: 48px; }
+@media (min-width: 861px) { .llista-nivells { columns: 2; } }   /* a l'ordinador, en dues columnes */
+.llista-nivells li { break-inside: avoid; }
+.llista-nivells li { counter-increment: n; padding: 7px 0 7px 46px; position: relative; border-bottom: 1px dashed #26366e; font-size: 16px; }
+.llista-nivells li::before { content: counter(n); position: absolute; left: 0; top: 6px; width: 32px; text-align: center; font-family: var(--pixel); font-size: 11px;
+  background: var(--groc); color: var(--mari); padding: 5px 0; }
+
+/* --- minijocs --- */
+.targetes { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+@media (min-width: 1040px) { .targetes { grid-template-columns: repeat(5, 1fr); } }   /* a l'ordinador, els cinc minijocs en una fila */
+.targeta { background: var(--mari); border: 3px solid var(--blau); padding: 20px 14px; }
+.targeta h3 { font-size: 17px; margin-bottom: 12px; line-height: 1.35; }
+.targeta .on { font-family: var(--pixel); font-size: 11px; line-height: 1.5; color: var(--groc); margin: 0 0 14px; white-space: nowrap; }   /* la ubicació, sempre en una línia */
+.targeta p { margin: 0; font-size: 15px; color: #d8e2ff; }
+
+/* --- controls --- */
+.controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid #26366e; vertical-align: top; }
+th { color: var(--groc); font-family: var(--pixel); font-size: 9px; font-weight: normal; }
+th { white-space: nowrap; }
+.controls td:first-child { width: 1%; white-space: nowrap; padding-right: 16px; }   /* l'acció, tan estreta com calgui: la descripció queda més a l'esquerra */
+kbd { font-family: var(--pixel); font-size: 9px; background: var(--blanc); color: var(--mari); padding: 3px 6px; border-bottom: 3px solid #9aa3ad; white-space: nowrap; }
+
+/* --- crèdits --- */
+.credits { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.credit { background: var(--mari); border-left: 5px solid var(--groc); padding: 20px 22px; }
+.credit .rol { font-family: var(--pixel); font-size: 9px; color: var(--blau-clar); margin-bottom: 10px; }
+.credit .nom { font-family: var(--pixel); font-size: 14px; color: var(--blanc); margin-bottom: 8px; }
+.credit p { margin: 0; font-size: 15px; color: #cfdcff; }
+
+/* --- peu --- */
+footer { background: var(--mari); padding: 40px 0; border-top: 3px solid var(--blau); font-size: 14px; color: #b8c6ee; }
+footer .columnes { display: flex; flex-wrap: wrap; gap: 24px 48px; justify-content: space-between; }
+footer nav { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+footer p { margin: 0 0 6px; }
+
+/* --- pàgines de text (avís legal, privacitat) --- */
+.document { max-width: 780px; margin: 0 auto; padding: 48px 20px 72px; }
+.document h1 { color: var(--groc); font-size: clamp(18px, 3vw, 24px); margin: 0 0 8px; }
+.document h2 { font-size: 15px; margin: 36px 0 10px; }
+.document .data { color: var(--blau-clar); margin: 0 0 24px; }
+.document section { padding: 4px 22px 14px; margin: 16px 0; background: var(--caixa); border-left: 4px solid var(--blau); }
+.document ul { padding-left: 22px; }
+.document .tornar { margin-top: 40px; display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* --- el visor de les captures --- */
+.galeria a.amplia { display: block; cursor: zoom-in; }
+.galeria a.amplia:hover img { filter: brightness(1.12); }
+.visor { position: fixed; inset: 0; z-index: 50; background: rgba(2, 4, 14, .94); display: flex; align-items: center; justify-content: center; padding: 56px 72px; }
+.visor[hidden] { display: none; }
+.visor figure { margin: 0; max-width: min(1200px, 100%); }
+.visor img { width: 100%; max-height: calc(100vh - 150px); object-fit: contain; border: 4px solid var(--groc); image-rendering: pixelated; background: #000; }
+.visor figcaption { font-family: var(--pixel); font-size: 11px; color: var(--blau-clar); text-align: center; margin-top: 14px; }
+.visor button { font-family: var(--pixel); background: var(--groc); color: var(--mari); border: 3px solid var(--mari); box-shadow: 4px 4px 0 #000; cursor: pointer; }
+.visor-fletxa { position: absolute; top: 50%; transform: translateY(-50%); width: 52px; height: 64px; font-size: 30px; line-height: 1; }
+.visor-fletxa.ant { left: 12px; } .visor-fletxa.seg { right: 12px; }
+.visor-tanca { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; font-size: 16px; }
+@media (max-width: 600px) { .visor { padding: 60px 8px; } .visor-fletxa { top: auto; bottom: 14px; transform: none; } }
+
+/* --- la intro: l'Urri, la pilota i la portada arrossegada (només amb la classe amb-intro, que posa el JavaScript) --- */
+#intro { display: none; }
+.amb-intro #intro { display: block; position: fixed; inset: 0; z-index: 100; background: var(--fons); overflow: hidden; cursor: pointer; }
+#intro img { position: absolute; left: 0; top: 0; image-rendering: pixelated; will-change: transform; }
+.intro-urri { width: auto; max-width: none; }
+.intro-fons { position: fixed; inset: 0; transform: translateX(-100%); will-change: transform; }
+.intro-pilota { z-index: 2; }
+.amb-intro body { overflow: hidden; }
+.amb-intro .barra { transform: translateY(-110%); }
+.barra { transition: transform .38s cubic-bezier(.2, .9, .3, 1.2); }
+.amb-intro .portada-vel { opacity: 0; }
+.portada-vel { transition: opacity .45s ease-out; }
+.amb-intro .portada .logo, .amb-intro .portada .lema, .amb-intro .portada .sublema, .amb-intro .portada .botons { opacity: 0; transform: translateY(24px); }
+.amb-intro .portada .logo { transform: scale(.6); }
+.portada .lema, .portada .sublema, .portada .botons { transition: opacity .4s ease-out, transform .4s ease-out; }
+.portada .logo { transition: opacity .35s ease-out, transform .45s cubic-bezier(.2, 1.4, .4, 1); }
+.amb-intro.vel .portada-vel { opacity: 1; }
+.amb-intro.logo .portada .logo { opacity: 1; transform: none; }
+.amb-intro.text .portada .lema, .amb-intro.text .portada .sublema { opacity: 1; transform: none; }
+.amb-intro.botons .portada .botons { opacity: 1; transform: none; }
+.amb-intro.menu .barra { transform: none; }
+.amb-intro.logo .portada .logo { animation: none; }
+.amb-intro .portada .logo { animation: none; }
+
+/* --- el que va apareixent amb l'scroll --- */
+.revela { opacity: 0; transform: translateY(36px); transition: opacity .6s ease-out, transform .6s cubic-bezier(.2, .8, .3, 1); }
+.revela.vist { opacity: 1; transform: none; }

@@ -1,0 +1,88 @@
+<!doctype html>
+<!-- Urri Bros. Codi © 2026 Sergio Reches Amaya. Il·lustracions © MILNOUCENTSTRES. Tots els drets reservats. -->
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#05081a">
+<title>Urri Bros</title>
+<meta name="author" content="Sergio Reches Amaya">
+<meta name="copyright" content="Codi © 2026 Sergio Reches Amaya. Il·lustracions © MILNOUCENTSTRES. Tots els drets reservats.">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Urri Bros">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<style>
+  html, body { margin: 0; height: 100%; background: #05081a; overflow: hidden; }
+  html, body, canvas {
+    touch-action: none; user-select: none; -webkit-user-select: none;
+    -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent;
+  }
+  body { display: flex; align-items: center; justify-content: center; }
+  canvas {
+    display: block;
+    width: min(100vw, calc(100vh * 16 / 9));
+    height: min(100vh, calc(100vw * 9 / 16));
+    width: min(100vw, calc(100dvh * 16 / 9));
+    height: min(100dvh, calc(100vw * 9 / 16));
+    image-rendering: pixelated;
+    background: #3d8bf0;
+  }
+  /* finestra del compte (inici de sessió, nom) */
+  #compte {
+    display: none; position: fixed; inset: 0; z-index: 10; align-items: center; justify-content: center;
+    background: rgba(5, 10, 40, .78); padding: 16px; box-sizing: border-box;
+    touch-action: auto; user-select: text; -webkit-user-select: text;
+  }
+  #compte .caixa {
+    width: min(460px, 100%); max-height: 100%; overflow: auto; box-sizing: border-box; padding: 22px 20px;
+    background: #06123a; color: #f4f7ff; border: 4px solid #f4f7ff; box-shadow: inset 0 0 0 4px #2a6be0;
+    font: 11px/1.7 "Press Start 2P", monospace; text-align: center;
+  }
+  #compte h2 { margin: 0 0 14px; font-size: 16px; color: #ffd24a; font-weight: normal; }
+  #compte p { margin: 0 0 14px; }
+  #compte b { color: #ffd24a; font-weight: normal; word-break: break-all; }
+  #compte .petit { font-size: 8px; color: #9fd0ff; }
+  #compte input {
+    display: block; width: 100%; box-sizing: border-box; margin: 0 0 12px; padding: 12px;
+    font: 14px "Press Start 2P", monospace; text-align: center; color: #06123a; background: #f4f7ff;
+    border: 3px solid #2a6be0; border-radius: 0; text-transform: none;
+  }
+  #compte input[name="nom"] { text-transform: uppercase; }
+  #compte button {
+    display: block; width: 100%; margin: 0 0 10px; padding: 12px 8px; cursor: pointer;
+    font: 11px "Press Start 2P", monospace; color: #fff; background: #2a6be0; border: 3px solid #f4f7ff;
+  }
+  #compte button.secundari { background: transparent; border-color: #6f86c8; color: #9fd0ff; }
+  #compte button.google { background: #fff; color: #1f1f1f; border-color: #dadce0; }
+  #compte button.google span { color: #4285f4; margin-right: 8px; }
+  #compte button.perill { background: transparent; border-color: #ff8a8a; color: #ff8a8a; }
+  #compte button:disabled { opacity: .5; cursor: wait; }
+  #compte button:focus-visible, #compte a:focus-visible, #compte input:focus-visible { outline: 3px solid #ffd24a; outline-offset: 3px; }
+  #compte .estat { min-height: 1em; font-size: 9px; color: #7fe08a; }
+  #compte a { color: #9fd0ff; }
+  #compte .estat.error { color: #ff8a8a; }
+  @media (max-height: 520px) {   /* mòbil en horitzontal: més compacte perquè hi càpiga amb el teclat */
+    #compte .caixa { padding: 12px 14px; font-size: 9px; }
+    #compte h2 { font-size: 13px; margin-bottom: 8px; }
+    #compte p { margin-bottom: 8px; }
+    #compte input { padding: 8px; margin-bottom: 8px; font-size: 12px; }
+    #compte button { padding: 8px; margin-bottom: 6px; font-size: 9px; }
+  }
+</style>
+</head>
+<body>
+<canvas id="game" width="1024" height="576"></canvas>
+<script src="assets/font.js"></script>
+<script src="ranking-config.js"></script>
+<script src="game.js"></script>
+<script>
+  // app instal·lable i joc sense connexió (només funciona servit per http/https, no obrint el fitxer)
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js');
+</script>
+</body>
+</html>

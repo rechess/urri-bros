@@ -1,0 +1,346 @@
+<!doctype html>
+<!-- Urri Bros. Codi © 2026 Sergio Reches Amaya. Il·lustracions © MILNOUCENTSTRES. Tots els drets reservats. -->
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Urri Bros: el videojoc de l'Urri</title>
+<meta name="description" content="Urri Bros: joc de plataformes gratuït amb l'Urri per tot Sabadell. 18 nivells, 5 minijocs i rànquing. Es juga al navegador, al mòbil i a l'ordinador.">
+<meta name="copyright" content="Codi © 2026 Sergio Reches Amaya. Il·lustracions © MILNOUCENTSTRES. Tots els drets reservats.">
+<meta property="og:title" content="Urri Bros: el videojoc de l'Urri">
+<meta property="og:description" content="18 nivells per tot Sabadell, 5 minijocs i rànquing. Gratuït i al navegador.">
+<meta property="og:image" content="joc/assets/promo.jpg">
+<meta name="theme-color" content="#06123a">
+<link rel="icon" href="joc/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="joc/assets/favicon.png">
+<link rel="apple-touch-icon" href="joc/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="estil.css">
+<script>
+  // qui havia instal·lat el joc com a app (quan era a l'arrel) entra directament al joc
+  if (matchMedia('(display-mode: standalone)').matches || navigator.standalone) location.replace('joc/');
+  // la intro (l'Urri xuta la pilota i destapa la portada) només si s'entra per la portada i no s'han demanat menys animacions
+  if (!location.hash && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('amb-intro');
+</script>
+</head>
+<body>
+
+<div id="intro" aria-hidden="true">
+  <img class="intro-urri" src="joc/assets/walk.png" alt="">
+  <div class="intro-fons"></div>
+  <img class="intro-pilota" src="assets/pilota.png" alt="">
+</div>
+
+<header class="barra">
+  <div class="contingut">
+    <a class="marca" href="#">URRI <span>BROS</span></a>
+    <nav aria-label="Seccions">
+      <a href="#joc">El joc</a>
+      <a href="#trailer">Tràiler</a>
+      <a href="#nivells">Nivells</a>
+      <a href="#minijocs">Minijocs</a>
+      <a href="#controls">Controls</a>
+      <a href="#credits">Crèdits</a>
+    </nav>
+    <a class="boto petit" href="joc/">Juga!</a>
+  </div>
+</header>
+
+<main>
+  <div class="portada">
+    <div class="portada-fons"></div>
+    <div class="portada-vel"></div>
+    <div class="contingut">
+      <img class="logo" src="assets/logo.png" width="900" height="504" alt="Logotip d'Urri Bros: l'Urri corrent, vestit amb l'equipació arlequinada">
+      <p class="lema">El videojoc de l'Urri</p>
+      <p class="sublema">Un joc de plataformes per tot Sabadell: de Vic a la Nova Creu Alta, de la Rambla a la Mola i fins a l'ascens a Segona.</p>
+      <div class="botons">
+        <a class="boto gran" href="joc/">Juga ara</a>
+        <a class="boto secundari" href="#trailer">Mira el tràiler</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="joc">
+    <div class="contingut">
+      <h2>El joc</h2>
+      <p class="intro-seccio">Urri Bros és un joc de plataformes gratuït protagonitzat per l'Urri amb l'equipació arlequinada. Corre, salta, xuta i recull cebes pels llocs més coneguts de la ciutat. Es juga directament al navegador sense instal·lar res i sense publicitat: a l'ordinador amb el teclat, al mòbil amb controls tàctils o amb un comandament de consola.</p>
+      <div class="xifres">
+        <div class="xifra"><b>18</b><span>NIVELLS<br>per Sabadell i rodalies</span></div>
+        <div class="xifra"><b>5</b><span>MINIJOCS<br>entre nivell i nivell</span></div>
+        <div class="xifra"><b>0€</b><span>GRATIS<br>sense anuncis ni registre</span></div>
+        <div class="xifra"><b>3</b><span>MANERES DE JUGAR<br>teclat, tàctil i comandament</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trailer">
+    <div class="contingut">
+      <h2>Tràiler</h2>
+      <video class="trailer" controls preload="none" playsinline poster="assets/trailer-poster.jpg" width="1280" height="640">
+        <source src="assets/trailer.mp4" type="video/mp4">
+        El teu navegador no pot reproduir el vídeo. <a href="assets/trailer.mp4">Descarrega'l</a>.
+      </video>
+    </div>
+  </section>
+
+  <section id="nivells">
+    <div class="contingut">
+      <h2>Els nivells</h2>
+      <p class="intro-seccio">Cada nivell és un lloc de Sabadell (o del camí fins a Sabadell) amb les il·lustracions de MILNOUCENTSTRES. Al menú, el mapa de la ciutat serveix per triar on vols jugar.</p>
+      <div class="galeria">
+        <figure><a href="assets/captures/gran/copa.jpg" class="amplia"><img src="assets/captures/copa.jpg" alt="La final de la Copa Catalunya, de nit a la Nova Creu Alta" loading="lazy" width="768" height="432"></a><figcaption>La final de Copa</figcaption></figure>
+        <figure><a href="assets/captures/gran/nadal.jpg" class="amplia"><img src="assets/captures/nadal.jpg" alt="El calendari d'advent a la façana de l'Ajuntament" loading="lazy" width="768" height="432"></a><figcaption>Nadal a Sabadell</figcaption></figure>
+        <figure><a href="assets/captures/gran/barris.jpg" class="amplia"><img src="assets/captures/barris.jpg" alt="La Torre de l'Aigua" loading="lazy" width="768" height="432"></a><figcaption>Els barris</figcaption></figure>
+        <figure><a href="assets/captures/gran/ajuntament.jpg" class="amplia"><img src="assets/captures/ajuntament.jpg" alt="L'Urri al balcó de l'Ajuntament i el castell dels Saballuts" loading="lazy" width="768" height="432"></a><figcaption>L'Ajuntament</figcaption></figure>
+        <figure><a href="assets/captures/gran/ripoll.jpg" class="amplia"><img src="assets/captures/ripoll.jpg" alt="El tobogan de la Bassa de Sant Oleguer" loading="lazy" width="768" height="432"></a><figcaption>El Ripoll i la Bassa</figcaption></figure>
+        <figure><a href="assets/captures/gran/agrari.jpg" class="amplia"><img src="assets/captures/agrari.jpg" alt="El camp de cebes del Parc Agrari de Sabadell" loading="lazy" width="768" height="432"></a><figcaption>El Parc Agrari</figcaption></figure>
+        <figure><a href="assets/captures/gran/mola.jpg" class="amplia"><img src="assets/captures/mola.jpg" alt="La pujada a la Mola" loading="lazy" width="768" height="432"></a><figcaption>La Mola</figcaption></figure>
+        <figure><a href="assets/captures/gran/museu.jpg" class="amplia"><img src="assets/captures/museu.jpg" alt="El tiranosaure del Museu de Paleontologia Miquel Crusafont" loading="lazy" width="768" height="432"></a><figcaption>Museu Miquel Crusafont</figcaption></figure>
+        <figure><a href="assets/captures/gran/ruta.jpg" class="amplia"><img src="assets/captures/ruta.jpg" alt="Marbella, a la ruta dels ascensos" loading="lazy" width="768" height="432"></a><figcaption>La ruta dels ascensos</figcaption></figure>
+      </div>
+      <div class="mapa-nivells">
+        <img src="joc/assets/mapa.jpg" alt="El mapa de Sabadell que fa de selector de nivells" loading="lazy" width="1024" height="572">
+        <ol class="llista-nivells">
+          <li>De Vic a Sabadell, comença el viatge</li>
+          <li>Benvingut a la capital del Vallès, Urri!</li>
+          <li>L'arribada a la Nova Creu Alta</li>
+          <li>La Nova Creu Alta, el pati d'Urri</li>
+          <li>La final de la Copa Catalunya</li>
+          <li>Sabadell de nit, cap a la Torre de l'Aigua</li>
+          <li>Parc Catalunya, el pulmó de Sabadell</li>
+          <li>La Rambla</li>
+          <li>Mercat Central, l'últim encàrrec</li>
+          <li>Nadal a Sabadell</li>
+          <li>Els barris de Sabadell</li>
+          <li>Celebrant l'ascens a l'Ajuntament</li>
+          <li>La Manchester catalana</li>
+          <li>El Ripoll: Urri coneix el Rodal</li>
+          <li>El Parc Agrari de Sabadell</li>
+          <li>La Mola: Urri puja al cim</li>
+          <li>Museu de Paleontologia Miquel Crusafont</li>
+          <li>La ruta dels ascensos</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="minijocs">
+    <div class="contingut">
+      <h2>Els minijocs</h2>
+      <p class="intro-seccio">Es juguen a les mitges parts entre nivells i també des del menú. Cada minijoc té el seu rànquing.</p>
+      <div class="targetes">
+        <div class="targeta"><h3>Tocs</h3><div class="on">Parc Catalunya</div><p>Fes tocs amb la pilota sense que caigui. Com més a temps, més recta puja.</p></div>
+        <div class="targeta"><h3>Penals</h3><div class="on">Nova Creu Alta</div><p>Cinc penals: tria la mira i la força per enganyar el porter.</p></div>
+        <div class="targeta"><h3>La Bussi</h3><div class="on">La Rambla</div><p>Esquiva les Bussis que arriben corrent pel carrer. La Bussi és la mascota de la TUS.</p></div>
+        <div class="targeta"><h3>Rematades</h3><div class="on">Nova Creu Alta</div><p>Deu centres per rematar de cap o de volea. Si la poses a l'escaire, el porter no hi arriba.</p></div>
+        <div class="targeta"><h3>Futbol-tennis</h3><div class="on">Sant Oleguer</div><p>Un partit a set punts contra Quadri. Al mig del camp hi ha una xarxa baixa.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="controls">
+    <div class="contingut">
+      <h2>Com es juga</h2>
+      <div class="controls">
+        <table>
+          <thead><tr><th colspan="2">Teclat</th></tr></thead>
+          <tbody>
+            <tr><td>Moure's</td><td><kbd>←</kbd> <kbd>→</kbd> o <kbd>A</kbd> <kbd>D</kbd></td></tr>
+            <tr><td>Saltar</td><td><kbd>Espai</kbd>, <kbd>↑</kbd>, <kbd>W</kbd> o <kbd>Z</kbd></td></tr>
+            <tr><td>Córrer</td><td><kbd>Shift</kbd> (mantén-la premuda)</td></tr>
+            <tr><td>Xutar</td><td><kbd>X</kbd>, <kbd>K</kbd> o <kbd>C</kbd></td></tr>
+            <tr><td>Ajupir-se</td><td><kbd>↓</kbd> o <kbd>S</kbd></td></tr>
+            <tr><td>Pausa</td><td><kbd>P</kbd> o <kbd>Esc</kbd></td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th colspan="2">Mòbil i tauleta</th></tr></thead>
+          <tbody>
+            <tr><td>Moure's</td><td>Palanca (<i>joystick</i>) de l'esquerra</td></tr>
+            <tr><td>Saltar</td><td>Botó <b>A</b></td></tr>
+            <tr><td>Córrer</td><td>Botó <b>B</b></td></tr>
+            <tr><td>Xutar</td><td>Botó de la pilota</td></tr>
+            <tr><td>Pausa</td><td>Botó de dalt</td></tr>
+            <tr><td colspan="2">Cal jugar amb el mòbil en horitzontal.</td></tr>
+          </tbody>
+        </table>
+        <table>
+          <thead><tr><th colspan="2">Comandament</th></tr></thead>
+          <tbody>
+            <tr><td>Moure's</td><td>Creu o palanca esquerra</td></tr>
+            <tr><td>Saltar</td><td>A / ✕</td></tr>
+            <tr><td>Córrer</td><td>X / □</td></tr>
+            <tr><td>Xutar</td><td>B / ○</td></tr>
+            <tr><td>Pausa</td><td>Start / Options</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:28px">Per pujar les puntuacions al rànquing compartit cal iniciar sessió amb Google, però <b>es pot jugar sense compte</b>. Més informació a la <a href="privacitat.html">política de privacitat</a>. El joc també es pot instal·lar com una app al mòbil o a l'ordinador i funciona sense connexió.</p>
+      <p style="margin-top:28px"><a class="boto" href="joc/">Juga ara</a></p>
+    </div>
+  </section>
+
+  <section id="credits">
+    <div class="contingut">
+      <h2>Crèdits</h2>
+      <div class="credits">
+        <div class="credit"><div class="rol">Il·lustracions i disseny</div><div class="nom">MILNOUCENTSTRES</div><p>El personatge de l'Urri, el logotip, els escenaris, el mapa i el material gràfic. @milnoucentstres</p></div>
+        <div class="credit"><div class="rol">Programació, música i efectes</div><div class="nom">Sergio Reches Amaya</div><p>El codi del joc, el disseny dels nivells, la música i els sons (sintetitzats al mateix joc).</p></div>
+      </div>
+      <!--
+        COL·LABORADORS: per afegir-ne, treu l'atribut «hidden» de la secció de sota i afegeix-hi una targeta per a cadascun:
+        <div class="credit"><div class="rol">Què ha fet</div><div class="nom">Nom</div><p>Una línia (opcional).</p></div>
+      -->
+      <div id="col·laboradors" hidden>
+        <h2 style="margin-top:48px">Col·laboradors</h2>
+        <div class="credits">
+        </div>
+      </div>
+      <h3 style="margin-top:44px">Recursos de tercers</h3>
+      <p>La lletra <a href="https://fonts.google.com/specimen/Press+Start+2P" rel="noopener">Press Start 2P</a> és de CodeMan38 (Cody Boisclair) i es fa servir sota la llicència <a href="assets/OFL-PressStart2P.txt">SIL Open Font License 1.1</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="contingut columnes">
+    <div>
+      <p class="pixel marca-peu" style="font-size:11px;color:#fff">URRI <span>BROS</span></p>
+      <p>Codi © 2026 Sergio Reches Amaya. Il·lustracions © MILNOUCENTSTRES.<br>Tots els drets reservats.</p>
+      <p>Contacte: <a href="mailto:urribros@gmail.com">urribros@gmail.com</a></p>
+    </div>
+    <nav aria-label="Informació legal">
+      <a href="joc/">Juga</a>
+      <a href="avis-legal.html">Avís legal</a>
+      <a href="privacitat.html">Privacitat</a>
+      <a href="llicencia.html">Llicència</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="visor" id="visor" hidden role="dialog" aria-modal="true" aria-label="Captura ampliada">
+  <button class="visor-tanca" type="button" aria-label="Tanca">✕</button>
+  <button class="visor-fletxa ant" type="button" aria-label="Anterior">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="visor-fletxa seg" type="button" aria-label="Següent">›</button>
+</div>
+
+<script>
+  // la intro: l'Urri arriba corrent amb la pilota, s'atura, saluda i xuta; la pilota s'emporta la portada cap a la dreta.
+  // Després apareixen el vel fosc, el logotip, el text, els botons i el menú. En total, uns 4 segons.
+  (() => {
+    const html = document.documentElement, intro = document.getElementById('intro');
+    if (!html.classList.contains('amb-intro')) { intro.remove(); return; }
+    const urri = intro.querySelector('.intro-urri'), pilota = intro.querySelector('.intro-pilota'), fons = intro.querySelector('.intro-fons');
+    const SPR = { walk: 'joc/assets/walk.png', run: 'joc/assets/run.png', idle: 'joc/assets/idle.png', win: 'joc/assets/win.png' };
+    Object.values(SPR).forEach(src => { new Image().src = src; });   // (que els canvis de postura no parpellegin)
+    const caixa = () => {   // la portada que s'arrossega ocupa exactament el lloc del fons de la portada de debò (sense salts en acabar)
+      const r = document.querySelector('.portada-fons').getBoundingClientRect();
+      Object.assign(fons.style, { top: r.top + 'px', left: r.left + 'px', width: r.width + 'px', height: r.height + 'px', right: 'auto', bottom: 'auto' });
+    };
+    caixa(); addEventListener('resize', caixa);
+    const T = { arriba: 1.2, atura: 1.4, saluda: 2.05, xut: 2.2, fora: 2.7 };   // segons
+    const etapes = [['vel', 0], ['logo', .15], ['text', .45], ['botons', .65], ['menu', 1.0], ['fet', 1.4]];   // després de destapar la portada
+    let t0 = null, acabat = false, postura = '';
+    const fix = parseFloat(new URLSearchParams(location.search).get('intro'));   // (per provar-la: ?intro=1.8 la congela en aquell instant)
+    const posa = k => { if (k !== postura) { postura = k; urri.src = SPR[k]; } };
+    const easeOut = x => 1 - Math.pow(1 - Math.min(1, Math.max(0, x)), 3);
+    function final() {
+      if (acabat) return; acabat = true;
+      intro.remove();
+      etapes.forEach(([c, d]) => setTimeout(() => html.classList.add(c), d * 1000));
+      setTimeout(() => html.classList.remove('amb-intro'), 1400);
+    }
+    function pas(ts) {
+      if (acabat) return;
+      if (t0 == null) t0 = ts;
+      const t = isNaN(fix) ? (ts - t0) / 1000 : fix, W = innerWidth, H = innerHeight;
+      const alt = Math.min(H * 0.3, 230), k = alt / 192, terra = H * 0.7, mida = alt * 0.2;
+      const centre = W / 2 - 51 * k;
+      let ux, bx, rot;
+      if (t < T.arriba) {   // arriba corrent, amb la pilota als peus
+        ux = -150 * k + (centre + 150 * k) * easeOut(t / T.arriba);
+        posa(Math.floor(t / 0.11) % 2 ? 'run' : 'walk');
+        bx = ux + 96 * k; rot = bx / (mida / 2);
+      } else if (t < T.xut) {   // s'atura i saluda
+        ux = centre; posa(t < T.atura ? 'idle' : t < T.saluda ? 'win' : 'run');
+        bx = ux + 96 * k; rot = bx / (mida / 2);
+      } else {   // el xut: la pilota surt disparada cap a la dreta i arrossega la portada
+        ux = centre; posa(t < T.xut + 0.25 ? 'run' : 'idle');
+        const x0 = centre + 96 * k, p = Math.min(1, (t - T.xut) / (T.fora - T.xut));
+        bx = x0 + (W + mida * 2 - x0) * p * p;
+        rot = bx / (mida / 2);
+        const vora = W * Math.max(0, (bx - x0) / (W + mida * 2 - x0));   // la vora dreta de la portada va enganxada a la pilota
+        fons.style.transform = `translateX(${vora - W}px)`;
+      }
+      urri.style.height = alt + 'px';
+      urri.style.transform = `translate(${ux}px, ${terra - alt}px)`;
+      const salt = t > T.xut ? -Math.sin(Math.min(1, (t - T.xut) / (T.fora - T.xut)) * Math.PI) * alt * 0.25 : 0;
+      pilota.style.width = pilota.style.height = mida + 'px';
+      pilota.style.transform = `translate(${bx}px, ${terra - mida + salt}px) rotate(${rot}rad)`;
+      if (t >= T.fora) final(); else if (isNaN(fix)) requestAnimationFrame(pas);
+    }
+    requestAnimationFrame(pas);
+    // un clic o una tecla se salta la intro
+    const salta = () => { if (!acabat) { acabat = true; intro.remove(); html.classList.add('vel', 'logo', 'text', 'botons', 'menu', 'fet'); html.classList.remove('amb-intro'); } };
+    addEventListener('pointerdown', salta, { once: true }); addEventListener('keydown', salta, { once: true });
+  })();
+
+  // la resta de la web va apareixent a mesura que es fa scroll, i el fons de la portada es mou més a poc a poc (parallax)
+  (() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+    const elems = document.querySelectorAll('main section h2, .intro-seccio, .xifra, .trailer, .galeria figure, .mapa-nivells > *, .llista-nivells li, .targeta, .controls table, #controls p, .credit, #credits h3, #credits p');
+    const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vist'); obs.unobserve(e.target); } }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    elems.forEach(el => {
+      const germans = [...el.parentElement.children].filter(c => c.matches('.xifra, .galeria figure, .targeta, .credit, .llista-nivells li, .controls table'));
+      const n = germans.indexOf(el);
+      if (n > 0) el.style.transitionDelay = Math.min(n, 8) * 70 + 'ms';   // les targetes d'un mateix grup, una darrere l'altra
+      el.classList.add('revela'); obs.observe(el);
+    });
+    const fons = document.querySelector('.portada-fons');
+    let pendent = false;
+    addEventListener('scroll', () => {
+      if (pendent) return; pendent = true;
+      requestAnimationFrame(() => { pendent = false; const y = scrollY; if (y < innerHeight * 1.2) fons.style.transform = `translateY(${y * 0.4}px)`; });
+    }, { passive: true });
+  })();
+</script>
+
+<script>
+  // el visor de les captures dels nivells: clicar una foto l'amplia; fletxes (botons, teclat o lliscant el dit) per passar-les
+  (() => {
+    const fotos = [...document.querySelectorAll('.galeria a.amplia')], v = document.getElementById('visor');
+    const img = v.querySelector('img'), peu = v.querySelector('figcaption');
+    let i = 0, tornar = null;
+    const mostra = n => {
+      i = (n + fotos.length) % fotos.length;
+      const a = fotos[i], petita = a.querySelector('img');
+      img.src = a.href; img.alt = petita.alt;
+      peu.textContent = `${a.closest('figure').querySelector('figcaption').textContent} · ${i + 1} / ${fotos.length}`;
+    };
+    const obre = n => { tornar = document.activeElement; mostra(n); v.hidden = false; document.body.style.overflow = 'hidden'; v.querySelector('.visor-tanca').focus(); };
+    const tanca = () => { v.hidden = true; document.body.style.overflow = ''; if (tornar) tornar.focus(); };
+    fotos.forEach((a, n) => a.addEventListener('click', e => { e.preventDefault(); obre(n); }));
+    v.querySelector('.ant').onclick = () => mostra(i - 1);
+    v.querySelector('.seg').onclick = () => mostra(i + 1);
+    v.querySelector('.visor-tanca').onclick = tanca;
+    v.addEventListener('click', e => { if (e.target === v) tanca(); });   // clicar fora de la foto també la tanca
+    addEventListener('keydown', e => {
+      if (v.hidden) return;
+      if (e.key === 'Escape') tanca();
+      else if (e.key === 'ArrowLeft') mostra(i - 1);
+      else if (e.key === 'ArrowRight') mostra(i + 1);
+    });
+    let x0 = null;
+    v.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+    v.addEventListener('touchend', e => { if (x0 == null) return; const d = e.changedTouches[0].clientX - x0; if (Math.abs(d) > 40) mostra(i + (d < 0 ? 1 : -1)); x0 = null; });
+  })();
+</script>
+
+<script>
+  // la web d'abans era el joc: si el navegador encara té el service worker antic, el treu (el joc té el seu, a joc/)
+  if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => { if (!new URL(r.scope).pathname.endsWith('/joc/')) r.unregister(); }));
+  if ('caches' in window) caches.delete('urri-bros');   // (la còpia del joc antic; la del joc nou es diu urri-bros-joc)
+</script>
+</body>
+</html>
